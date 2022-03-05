@@ -1,7 +1,6 @@
 
 let numberOfFaces = 5;
 
-let score = 0;
 const theLeftSide = document.getElementById('leftSide');
 const theRightSide = document.getElementById('rightSide');
     
@@ -13,7 +12,7 @@ function generateFaces() {
         console.log(i);
         //Inserts the image for 
         var face = document.createElement('img');
-        face.src = '/images/hamburger.png';
+        face.src = './images/hamburger.png';
 
         //Creates random positions on right and left side.
         randomTop = Math.floor(Math.random() * 400) + 1;
@@ -36,7 +35,7 @@ function generateFaces() {
 
     function nextLevel() {
         event.stopPropagation();
-        score++;
+                
         //While loops to remove faces from both sides for next level.
         while(theRightSide.firstChild) {
             theRightSide.removeChild(theRightSide.firstChild);
@@ -51,14 +50,10 @@ function generateFaces() {
 
 
     function gameOver() {
-        alert('Game Over.\n\nThank you for playing.' + '\n\n Your score was ' + score + ' !.' );
+        alert('Game Over.\nThank you for playing.');
         theLeftSide.lastChild.removeEventListener('click', nextLevel)
         document.body.removeEventListener('click', gameOver);
         window.location.reload();
-}
-    
-function restart() {
-        window.location.reload();
-    } 
+    }
 
 
